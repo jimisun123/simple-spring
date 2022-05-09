@@ -1,0 +1,12 @@
+aop2.0版本 切点为Aspectj表达式
+
+1. 定义Aspect = Advice + pointcut
+
+
+2. 循环容器中所有的Bean中的所有Method，获取其命中的Aspect列表
+    通过判断Method是否满足pointcut
+
+3. 对命中对Aspect列表进行排序，使用Cglib进行织入生成新的代理对象
+
+
+4. 将生成新对代理对象重新放入容器中

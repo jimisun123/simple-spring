@@ -1,0 +1,19 @@
+aop1.0版本 切点为指定注解标注的类
+
+
+1. Aspect = Advice + Pointcut
+    Advice采用DefaultAspect抽象类实现
+    Pointcut定义在@Aspect注解中
+
+2. 一个Pointcut可以存在多个Aspect,所以在定义Aspect的时候需要指定Aspect的Order
+    Oder采用@Order注解实现
+
+    AspectInfo = @Aspect + @Order
+    Pointcut = List<AspectInfo> aspectInfo;
+
+
+3. 循环容器中的Pointcut列表，按照@Order中的顺序织入@Aspect中Advice中的增强；
+
+4. 将增强后的对象重新放入容器中
+
+
