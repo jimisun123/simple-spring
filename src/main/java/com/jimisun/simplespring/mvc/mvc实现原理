@@ -1,0 +1,13 @@
+1. servlet初始化完成后 扫描BeanFactory中的被@RequestMapping标注的类
+
+2. 获取类中的被@RequestMapping注解标注的Method
+
+3. 存储 （requestMethod+requestPath) -> (controllerClass + Method实例 + Map<paramsName,Class<?>> RequestParamsType类型列表）
+
+4. 提取request中的请求信息封装 （requestMethod+requestPath) 获取 (controllerClass + Method实例 + Map<paramsName,Class<?>> RequestParamsType类型列表）
+
+5. 提取request中的请求参数，按照Map<paramsName,Class<?>> RequestParamsType中的关系进行参数绑定；
+
+6. 通过反射执行容器中的method方法
+
+7. 判断该类是否被@Response注解标注，如果被标注则将返回值用Json响应
